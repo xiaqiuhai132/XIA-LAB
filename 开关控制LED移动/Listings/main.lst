@@ -1,0 +1,71 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              01/07/2023 01:32:14 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          void Delay(unsigned int xms)    //@12.000MHz
+   3          {
+   4   1        unsigned char i, j;
+   5   1        while(xms)
+   6   1        {
+   7   2          i = 2;
+   8   2          j = 239;
+   9   2          do
+  10   2          {
+  11   3            while (--j);
+  12   3          } while (--i);
+  13   2          --xms;
+  14   2        }
+  15   1      }
+  16          
+  17          void main()
+  18          {
+  19   1        unsigned char a;
+  20   1        a=0xFF;
+  21   1        P2=a;
+  22   1        while(1)
+  23   1        {
+  24   2        if(P3_1==0&&a==0xFF)
+  25   2        {
+  26   3        Delay(20);
+  27   3        P2=0xFE;
+  28   3        a=P2;
+  29   3        while(P3_1==0);
+  30   3        Delay(20);
+  31   3        while(P3_1==1);
+  32   3        }
+  33   2        else if(P3_1==0&&a!=0xFF)
+  34   2        {
+  35   3          Delay(20);
+  36   3          a=~a;
+  37   3          a=a<<1;
+  38   3          a=~a;
+  39   3          P2=a;
+  40   3          while(P3_1==0);
+  41   3          Delay(20);
+  42   3          while(P3_1==1);
+  43   3        } 
+  44   2        }
+  45   1      } 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     90    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.60.0.0   MAIN                                                              01/07/2023 01:32:14 PAGE 2   
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

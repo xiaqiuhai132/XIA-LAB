@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/AbsoluteLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <hanry.MySurfaceView
+        android:id="@+id/mySurfaceView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <Button
+        android:id="@+id/TurnLeft"
+        android:layout_width="66dp"
+        android:layout_height="55dp"
+        android:layout_x="0dp"
+        android:layout_y="260dp"
+        android:text="左转" />
+
+    <Button
+        android:id="@+id/ForWard"
+        android:layout_width="66dp"
+        android:layout_height="55dp"
+        android:layout_x="70dp"
+        android:layout_y="200dp"
+        android:text="前进" />
+
+    <Button
+        android:id="@+id/TurnRight"
+        android:layout_width="66dp"
+        android:layout_height="55dp"
+        android:layout_x="140dp"
+        android:layout_y="260dp"
+        android:text="右转" />
+
+    <Button
+        android:id="@+id/BackWard"
+        android:layout_width="66dp"
+        android:layout_height="55dp"
+        android:layout_x="70dp"
+        android:layout_y="260dp"
+        android:text="后退" />
+
+  <Button
+      android:id="@+id/Button1"
+      android:layout_width="wrap_content"
+      android:layout_height="40dp"
+      android:layout_x="50dp"
+      android:layout_y="10dp"
+      android:text="关灯" />
+
+    <Button
+        android:id="@+id/Button4"
+        android:layout_width="66dp"
+        android:layout_height="40dp"
+        android:layout_x="410dp"
+        android:layout_y="270dp"
+        android:text="下" />
+
+    <Button
+        android:id="@+id/Button5"
+        android:layout_width="66dp"
+        android:layout_height="40dp"
+        android:layout_x="470dp"
+        android:layout_y="270dp"
+        android:text="右" />
+
+    <Button
+        android:id="@+id/Button6"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_x="0dp"
+        android:layout_y="10dp"
+        android:text="开灯" />
+
+    <Button
+        android:id="@+id/Button9"
+        android:layout_width="66dp"
+        android:layout_height="40dp"
+        android:layout_x="410dp"
+        android:layout_y="235dp"
+        android:text="上" />
+
+    <Button
+        android:id="@+id/Button0"
+        android:layout_width="66dp"
+        android:layout_height="40dp"
+        android:layout_x="350dp"
+        android:layout_y="270dp"
+        android:text="左" />
+
+</AbsoluteLayout>

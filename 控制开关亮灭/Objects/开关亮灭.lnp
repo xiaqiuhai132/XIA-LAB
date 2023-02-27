@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj" 
+TO ".\Objects\开关亮灭" 
+PRINT(".\Listings\开关亮灭.m51") RAMSIZE(256) 

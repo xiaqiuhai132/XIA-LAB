@@ -1,0 +1,98 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              12/25/2022 21:08:09 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <intrins.h>
+   3          void Delay(unsigned char xms)   //@11.0592MHz
+   4          {
+   5   1        for(;xms>0;xms--)
+   6   1        {
+   7   2          unsigned char i, j;
+   8   2          _nop_();
+   9   2          i = 2;
+  10   2          j = 199;
+  11   2          do
+  12   2          {
+  13   3            while (--j);
+  14   3          } while (--i);
+  15   2        } 
+  16   1      }
+  17          void NixieTube(unsigned char x,unsigned char y)
+  18          {
+  19   1         char Number[]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F};
+  20   1         switch(x)
+  21   1        {
+  22   2          case 1:
+  23   2            P2_2=1;
+  24   2            P2_3=1;
+  25   2            P2_4=1;break;
+  26   2          case 2:
+  27   2            P2_2=0;
+  28   2            P2_3=1;
+  29   2            P2_4=1;break;
+  30   2          case 3:
+  31   2            P2_2=1;
+  32   2            P2_3=0;
+  33   2            P2_4=1;break;
+  34   2          case 4:
+  35   2            P2_2=0;
+  36   2            P2_3=0;
+  37   2            P2_4=1;break;
+  38   2          case 5:
+  39   2            P2_2=1;
+  40   2            P2_3=1;
+  41   2            P2_4=0;break;
+  42   2          case 6:
+  43   2            P2_2=0;
+  44   2            P2_3=1;
+  45   2            P2_4=0;break;
+  46   2          case 7:
+  47   2            P2_2=1;
+  48   2            P2_3=0;
+  49   2            P2_4=0;break;
+  50   2          case 8:
+  51   2            P2_2=0;
+  52   2            P2_3=0;
+  53   2            P2_4=0;break;
+  54   2        }
+C51 COMPILER V9.60.0.0   MAIN                                                              12/25/2022 21:08:09 PAGE 2   
+
+  55   1        P0=Number[y];
+  56   1        Delay(1000);
+  57   1        P0=0x00;
+  58   1      }
+  59          void main()
+  60          {
+  61   1        while(1)
+  62   1        {
+  63   2        NixieTube(1,1);
+  64   2        NixieTube(2,2);
+  65   2        NixieTube(3,3);
+  66   2        NixieTube(4,4);
+  67   2        NixieTube(5,5);
+  68   2        NixieTube(6,6);
+  69   2        NixieTube(7,7);
+  70   2        NixieTube(8,8);
+  71   2        }
+  72   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    217    ----
+   CONSTANT SIZE    =      9    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      13
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

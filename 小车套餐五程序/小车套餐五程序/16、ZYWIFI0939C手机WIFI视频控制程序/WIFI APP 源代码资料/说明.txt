@@ -1,0 +1,14 @@
+WIFI控制界面码值表
+
+前进 为：ONAONF
+后退：ONBONF
+左转：ONCONF
+右转：ONDONF
+停止：ONEONF
+
+开灯：ONGONF
+关灯：ONHONF
+上 ：ONJONF
+下：ONKONF
+左:ONLONF
+右：ONIONF
