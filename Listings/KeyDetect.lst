@@ -1,0 +1,54 @@
+C51 COMPILER V9.60.0.0   KEYDETECT                                                         02/27/2023 20:54:56 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE KEYDETECT
+OBJECT MODULE PLACED IN .\Objects\KeyDetect.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE KeyDetect.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\KeyDetect.lst) TABS(2) OBJECT(.\Objects\KeyDetect.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          unsigned char Key=0;
+   3          unsigned char KeyDetect()
+   4          {
+   5   1        P1=0xFF;
+   6   1        P1_3=0;
+   7   1        if(P1_3==0&&(P1_7==0||P1_6==0||P1_5==0||P1_4==0))
+   8   1        {
+   9   2          Key=1;
+  10   2        }
+  11   1        P1=0xFF;
+  12   1        P1_2=0;
+  13   1        if(P1_2==0&&(P1_7==0||P1_6==0||P1_5==0||P1_4==0))
+  14   1        {
+  15   2          Key=1;
+  16   2        }
+  17   1        P1=0xFF;
+  18   1        P1_1=0;
+  19   1        if(P1_3==0&&(P1_7==0||P1_6==0||P1_5==0||P1_4==0))
+  20   1        {
+  21   2          Key=1;
+  22   2        }
+  23   1        P1=0xFF;
+  24   1        P1_0=0;
+  25   1        if(P1_3==0&&(P1_7==0||P1_6==0||P1_5==0||P1_4==0))
+  26   1        {
+  27   2          Key=1;
+  28   2        }
+  29   1        return (Key);
+  30   1      } 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     95    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

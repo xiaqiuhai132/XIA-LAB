@@ -1,0 +1,128 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 22:13:01 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <MatrixKey.h>
+   2          #include <LCD1602.h>
+   3          #include <REGX52.H>
+   4          #include <Delay.h>
+   5          unsigned int KeyN,KeyD;
+   6          unsigned int x1,x2,y1,y2,x,y,count,a,b;
+   7          void main()
+   8          {
+   9   1        x1=526;
+  10   1        x2=307;
+  11   1        y1=0;
+  12   1        y2=0;
+  13   1        count=6;
+  14   1        x=x1*1000+x2;// Key Setting
+  15   1        P1=0xFF;
+  16   1        LCD_Init();
+  17   1        LCD_ShowString(1,1,"KeyNumber");
+  18   1        LCD_ShowNum(2,1,0,6);
+  19   1        while(1)
+  20   1        {
+  21   2         while(KeyN!=11)
+  22   2              {
+  23   3                KeyN=MatrixKey();
+  24   3                if(KeyN==12)
+  25   3                {
+  26   4                  Delay(20);
+  27   4                  LCD_ShowNum(2,1,0,6);
+  28   4                  count=6;                              //count number reset
+  29   4                  y1=0;
+  30   4                  y2=0;
+  31   4                }
+  32   3                else if(KeyN&&count>3)
+  33   3                {
+  34   4                  Delay(20);
+  35   4                  b=1;
+  36   4                  a=count-4;                          //initial a=2
+  37   4                  if(KeyN==10)
+  38   4                    {
+  39   5                      KeyN=0;                    //Number 0  
+  40   5                    }
+  41   4                  while(a>0)
+  42   4                  {
+  43   5                    b=b*10;
+  44   5                    a--;
+  45   5                  }                             //b=100,b=10
+  46   4                  y1=y1+KeyN*b;
+  47   4                  LCD_ShowNum(2,1,0,6);
+  48   4                  LCD_ShowNum(2,1,y1,3);
+  49   4                  count--;
+  50   4                }
+  51   3                else if(KeyN&&count>0)
+  52   3                {
+  53   4                  Delay(20);
+  54   4                  b=1;
+C51 COMPILER V9.60.0.0   MAIN                                                              03/04/2023 22:13:01 PAGE 2   
+
+  55   4                  a=count-1;                          //initial a=2
+  56   4                  if(KeyN==10)
+  57   4                    {
+  58   5                      KeyN=0;               //Number 0
+  59   5                    }
+  60   4                  while(a>0)
+  61   4                  {
+  62   5                    b=b*10;
+  63   5                    a--;
+  64   5                  }                           //b=100,b=10
+  65   4                  y2=y2+KeyN*b;
+  66   4                  LCD_ShowNum(2,4,y2,3);
+  67   4                  count--;
+  68   4                }
+  69   3                    y=y1*1000+y2;
+  70   3                    
+  71   3              }
+  72   2          if(x1==y1&&x2==y2)
+  73   2          {
+  74   3            LCD_ShowString(2,1,"UnLockSuccess");
+  75   3            KeyD=MatrixKey();     
+  76   3            if(KeyD&&KeyD!=11)
+  77   3            {
+  78   4              LCD_ShowString(2,1,"              ");
+  79   4              LCD_ShowNum(2,1,0,6);
+  80   4              count=6;
+  81   4              y1=0;
+  82   4              y2=0;
+  83   4              KeyN=MatrixKey();
+  84   4            }
+  85   3          }
+  86   2          else
+  87   2          {
+  88   3            LCD_ShowString(2,1,"Fulse ");
+  89   3            KeyD=MatrixKey();     
+  90   3            if(KeyD&&KeyD!=11)
+  91   3            {
+  92   4              LCD_ShowString(2,1,"              ");
+  93   4              LCD_ShowNum(2,1,0,6);
+  94   4              count=6;
+  95   4              y1=0;
+  96   4              y2=0;
+  97   4              KeyN=MatrixKey();
+  98   4              Delay(20);
+  99   4            }
+ 100   3          } 
+ 101   2        }
+ 102   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    669    ----
+   CONSTANT SIZE    =     46    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     22    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
